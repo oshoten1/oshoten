@@ -1,0 +1,287 @@
+1449550560371	Tue Dec 08 13:56:00 JST 2015	PROJECT_RECORD	START
+1449550560371	Tue Dec 08 13:56:00 JST 2015	LOG	INFO	LoggingThread Start
+1449550560391	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	UPDATED	src/DialogueAuthenticateSample.java
+1449550560391	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	UPDATED	src/DialogueSample.java
+1449550560371	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	FILE_CREATED	src/DialogueAuthenticateSample.java
+1449550560371	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	SAVE	src/DialogueAuthenticateSample.java
+1449550560401	Tue Dec 08 13:56:00 JST 2015	LOG	DEBUG	already stamped.: src/DialogueAuthenticateSample.java
+1449550560371	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueAuthenticateSample.java
+1449550560371	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	FILE_CREATED	src/DialogueSample.java
+1449550560371	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	SAVE	src/DialogueSample.java
+1449550560431	Tue Dec 08 13:56:00 JST 2015	LOG	DEBUG	already stamped.: src/DialogueSample.java
+1449550560371	Tue Dec 08 13:56:00 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueSample.java
+1449550567521	Tue Dec 08 13:56:07 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueAuthenticateSample.java
+1449550570662	Tue Dec 08 13:56:10 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueAuthenticateSample.java
+1449550571112	Tue Dec 08 13:56:11 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550572712	Tue Dec 08 13:56:12 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550580253	Tue Dec 08 13:56:20 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550609977	Tue Dec 08 13:56:49 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550693704	Tue Dec 08 13:58:13 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueAuthenticateSample.java	0	1888	import jp.ne.docomo.smt.dev.common.exception.SdkException;\nimport jp.ne.docomo.smt.dev.common.exception.ServerException;\nimport jp.ne.docomo.smt.dev.common.http.AuthApiKey;\nimport jp.ne.docomo.smt.dev.common.http.ProxyInfo;\nimport jp.ne.docomo.smt.dev.dialogue.param.DialogueRequestParam;\nimport jp.ne.docomo.smt.dev.dialogue.Dialogue;\nimport jp.ne.docomo.smt.dev.dialogue.data.DialogueResultData;\n\n/**\n * 雑談対話サンプルコード （アクセストークン利用）\n */\npublic class DialogueAuthenticateSample {\n\n\tpublic static void main(String[] args) {\n\n\t\ttry {\n\t\t\t// APIKEY の設定\n\t\t\tAuthApiKey.initializeAuth("APIKEY");\n\n\t\t\t// プロキシの設定\n\t\t\t// プロキシを使用しない場合はコメントにしてください\n\t\t\tProxyInfo.initializeProxy("proxyhost.co.jp", 80);\n\t\t\t\n\t\t\t// 雑談対話パラメータクラスを生成して、質問を設定する\n\t\t\tDialogueRequestParam param = new DialogueRequestParam();\n\t\t\tparam.setUtt("私の誕生日");\n\t\t\tparam.setContext("aaabbbccc111222333");\n\t\t\tparam.setNickname("光");\n\t\t\tparam.setNickname_y("ヒカリ");\n\t\t\tparam.setSex("女");\n\t\t\tparam.setBloodtype("B");\n\t\t\tparam.setBirthdateY(1997);\n\t\t\tparam.setBirthdateM(5);\n\t\t\tparam.setBirthdateD(30);\n\t\t\tparam.setAge(16);\n\t\t\tparam.setConstellations("双子座");\n\t\t\tparam.setPlace("東京");\n\t\t\tparam.setMode("dialog");\n\t\t\tparam.setCharacter(30);\n\n\t\t\t// 雑談対話クラスの生成して、リクエストを実行する\n\t\t\tDialogue dialogue = new Dialogue();\n\t\t\tDialogueResultData resultData = dialogue.request(param, "ACCESS_TOKEN");\n\n\t\t\t// 返却するメッセージに関する情報の出力\n\t\t\tSystem.out.println("システムの返答 : " + resultData.getUtt());\n\t\t\tSystem.out.println("音声合成用読み出力 : " + resultData.getYomi());\n\t\t\tSystem.out.println("モード : " + resultData.getMode());\n\t\t\tSystem.out.println("対話番号 : " + resultData.getDa());\n\t\t\tSystem.out.println("コンテキストID : " + resultData.getContext());\n\n\t\t} catch (SdkException e) {\n\t\t\te.printStackTrace();\n\t\t} catch (ServerException e) {\n\t\t\te.printStackTrace();\n\t\t}\n\t}\n}\n
+1449550693774	Tue Dec 08 13:58:13 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	0	1838	import jp.ne.docomo.smt.dev.common.exception.SdkException;\nimport jp.ne.docomo.smt.dev.common.exception.ServerException;\nimport jp.ne.docomo.smt.dev.common.http.AuthApiKey;\nimport jp.ne.docomo.smt.dev.common.http.ProxyInfo;\nimport jp.ne.docomo.smt.dev.dialogue.param.DialogueRequestParam;\nimport jp.ne.docomo.smt.dev.dialogue.Dialogue;\nimport jp.ne.docomo.smt.dev.dialogue.data.DialogueResultData;\n\n/**\n * 雑談対話サンプルコード\n */\npublic class DialogueSample {\n\n\tpublic static void main(String[] args) {\n\n\t\ttry {\n\t\t\t// APIKEY の設定\n\t\t\tAuthApiKey.initializeAuth("APIKEY");\n\n\t\t\t// プロキシの設定\n\t\t\t// プロキシを使用しない場合はコメントにしてください\n\t\t\tProxyInfo.initializeProxy("proxyhost.co.jp", 80);\n\t\t\t\n\t\t\t// 雑談対話パラメータクラスを生成して、質問を設定する\n\t\t\tDialogueRequestParam param = new DialogueRequestParam();\n\t\t\tparam.setUtt("私の誕生日");\n\t\t\tparam.setContext("aaabbbccc111222333");\n\t\t\tparam.setNickname("光");\n\t\t\tparam.setNickname_y("ヒカリ");\n\t\t\tparam.setSex("女");\n\t\t\tparam.setBloodtype("B");\n\t\t\tparam.setBirthdateY(1997);\n\t\t\tparam.setBirthdateM(5);\n\t\t\tparam.setBirthdateD(30);\n\t\t\tparam.setAge(16);\n\t\t\tparam.setConstellations("双子座");\n\t\t\tparam.setPlace("東京");\n\t\t\tparam.setMode("dialog");\n\t\t\tparam.setCharacter(30);\n\n\t\t\t// 雑談対話クラスの生成して、リクエストを実行する\n\t\t\tDialogue dialogue = new Dialogue();\n\t\t\tDialogueResultData resultData = dialogue.request(param);\n\n\t\t\t// 返却するメッセージに関する情報の出力\n\t\t\tSystem.out.println("システムの返答 : " + resultData.getUtt());\n\t\t\tSystem.out.println("音声合成用読み出力 : " + resultData.getYomi());\n\t\t\tSystem.out.println("モード : " + resultData.getMode());\n\t\t\tSystem.out.println("対話番号 : " + resultData.getDa());\n\t\t\tSystem.out.println("コンテキストID : " + resultData.getContext());\n\n\t\t} catch (SdkException e) {\n\t\t\te.printStackTrace();\n\t\t} catch (ServerException e) {\n\t\t\te.printStackTrace();\n\t\t}\n\t}\n}\n
+1449550697040	Tue Dec 08 13:58:17 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550740671	Tue Dec 08 13:59:00 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550780627	Tue Dec 08 13:59:40 JST 2015	PROJECT_RECORD	EXTENDED	org.eclipse.ui.file.properties	true
+1449550877187	Tue Dec 08 14:01:17 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550881257	Tue Dec 08 14:01:21 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550881457	Tue Dec 08 14:01:21 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550881677	Tue Dec 08 14:01:21 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449550887718	Tue Dec 08 14:01:27 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550890179	Tue Dec 08 14:01:30 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449550893671	Tue Dec 08 14:01:33 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449550894163	Tue Dec 08 14:01:34 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449550900613	Tue Dec 08 14:01:40 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550904934	Tue Dec 08 14:01:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	610	0	・
+1449550905064	Tue Dec 08 14:01:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	610	1	・・
+1449550906294	Tue Dec 08 14:01:46 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	610	2	・
+1449550906444	Tue Dec 08 14:01:46 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	610	1	
+1449550907634	Tue Dec 08 14:01:47 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	610	0	/
+1449550907754	Tue Dec 08 14:01:47 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	611	0	/
+1449550912025	Tue Dec 08 14:01:52 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550912285	Tue Dec 08 14:01:52 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	661	8	\n\n\t\t\t
+1449550912285	Tue Dec 08 14:01:52 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	612	0	 
+1449550912295	Tue Dec 08 14:01:52 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	398	0	import jp.ne.docomo.smt.dev.dialogue.param.DialogueRequestParam;\n
+1449550912295	Tue Dec 08 14:01:52 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	173	116	
+1449550912395	Tue Dec 08 14:01:52 JST 2015	COMMAND_RECORD	SAVE	src/DialogueSample.java
+1449550912395	Tue Dec 08 14:01:52 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueSample.java
+1449550912395	Tue Dec 08 14:01:52 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550918256	Tue Dec 08 14:01:58 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449550920036	Tue Dec 08 14:02:00 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449550934538	Tue Dec 08 14:02:14 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	505	1	
+1449550934708	Tue Dec 08 14:02:14 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	504	1	
+1449550934868	Tue Dec 08 14:02:14 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	503	1	
+1449550935048	Tue Dec 08 14:02:15 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	502	1	
+1449550935418	Tue Dec 08 14:02:15 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	501	1	
+1449550935808	Tue Dec 08 14:02:15 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	500	1	
+1449550946549	Tue Dec 08 14:02:26 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550947599	Tue Dec 08 14:02:27 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550948499	Tue Dec 08 14:02:28 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449550949770	Tue Dec 08 14:02:29 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449550958240	Tue Dec 08 14:02:38 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551158377	Tue Dec 08 14:05:58 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551160534	Tue Dec 08 14:06:00 JST 2015	COMMAND_RECORD	PASTE	src/DialogueSample.java	org.eclipse.ui.edit.paste
+1449551161866	Tue Dec 08 14:06:01 JST 2015	COMMAND_RECORD	PASTE	src/DialogueSample.java	org.eclipse.ui.edit.paste
+1449551163821	Tue Dec 08 14:06:03 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551192565	Tue Dec 08 14:06:32 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551204208	Tue Dec 08 14:06:44 JST 2015	COMMAND_RECORD	PASTE	src/DialogueSample.java	org.eclipse.ui.edit.paste
+1449551208333	Tue Dec 08 14:06:48 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	500	0	x
+1449551208571	Tue Dec 08 14:06:48 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	501	0	x
+1449551208919	Tue Dec 08 14:06:48 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	502	0	x
+1449551209108	Tue Dec 08 14:06:49 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	503	0	x
+1449551209307	Tue Dec 08 14:06:49 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	504	0	x
+1449551212479	Tue Dec 08 14:06:52 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551249098	Tue Dec 08 14:07:29 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551251945	Tue Dec 08 14:07:31 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	505	0	x
+1449551252290	Tue Dec 08 14:07:32 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	506	0	x
+1449551252608	Tue Dec 08 14:07:32 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	507	0	x
+1449551252927	Tue Dec 08 14:07:32 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	508	0	x
+1449551253228	Tue Dec 08 14:07:33 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	509	0	x
+1449551253804	Tue Dec 08 14:07:33 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	510	0	x
+1449551254153	Tue Dec 08 14:07:34 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	511	0	x
+1449551254511	Tue Dec 08 14:07:34 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	512	0	x
+1449551254898	Tue Dec 08 14:07:34 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	513	0	x
+1449551255296	Tue Dec 08 14:07:35 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	514	0	x
+1449551255632	Tue Dec 08 14:07:35 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	515	0	x
+1449551255913	Tue Dec 08 14:07:35 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	516	0	x
+1449551258348	Tue Dec 08 14:07:38 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551260556	Tue Dec 08 14:07:40 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551260574	Tue Dec 08 14:07:40 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551260601	Tue Dec 08 14:07:40 JST 2015	COMMAND_RECORD	SAVE	src/DialogueSample.java
+1449551260601	Tue Dec 08 14:07:40 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueSample.java
+1449551260606	Tue Dec 08 14:07:40 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551260685	Tue Dec 08 14:07:40 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449551262044	Tue Dec 08 14:07:42 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449551267079	Tue Dec 08 14:07:47 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551740957	Tue Dec 08 14:15:40 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551742868	Tue Dec 08 14:15:42 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	516	1	
+1449551743008	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	515	1	
+1449551743151	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	514	1	
+1449551743658	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	513	1	
+1449551743688	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	512	1	
+1449551743718	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	511	1	
+1449551743748	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	510	1	
+1449551743777	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	509	1	
+1449551743818	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	508	1	
+1449551743838	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	507	1	
+1449551743867	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	506	1	
+1449551743897	Tue Dec 08 14:15:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	505	1	
+1449551744085	Tue Dec 08 14:15:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	504	1	
+1449551744240	Tue Dec 08 14:15:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	503	1	
+1449551744394	Tue Dec 08 14:15:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	502	1	
+1449551744563	Tue Dec 08 14:15:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	501	1	
+1449551745394	Tue Dec 08 14:15:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	500	1	
+1449551752563	Tue Dec 08 14:15:52 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	500	0	46676a386f614a4a635566524476383144526c4a3159315a392e45316e3574792e4f437065483574633839
+1449551752582	Tue Dec 08 14:15:52 JST 2015	COMMAND_RECORD	PASTE	src/DialogueSample.java	org.eclipse.ui.edit.paste
+1449551756479	Tue Dec 08 14:15:56 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551756546	Tue Dec 08 14:15:56 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	483	0	\n\t\t\t\t\t
+1449551756722	Tue Dec 08 14:15:56 JST 2015	COMMAND_RECORD	SAVE	src/DialogueSample.java
+1449551756722	Tue Dec 08 14:15:56 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueSample.java
+1449551756729	Tue Dec 08 14:15:56 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551757957	Tue Dec 08 14:15:57 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449551760473	Tue Dec 08 14:16:00 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449551781513	Tue Dec 08 14:16:21 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551783794	Tue Dec 08 14:16:23 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551784883	Tue Dec 08 14:16:24 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551785182	Tue Dec 08 14:16:25 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueAuthenticateSample.java
+1449551800400	Tue Dec 08 14:16:40 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueAuthenticateSample.java
+1449551800600	Tue Dec 08 14:16:40 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueAuthenticateSample.java
+1449551800745	Tue Dec 08 14:16:40 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueAuthenticateSample.java
+1449551805861	Tue Dec 08 14:16:45 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueAuthenticateSample.java
+1449551805862	Tue Dec 08 14:16:45 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551813370	Tue Dec 08 14:16:53 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueAuthenticateSample.java
+1449551817254	Tue Dec 08 14:16:57 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449551819137	Tue Dec 08 14:16:59 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449551824300	Tue Dec 08 14:17:04 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	811	1	
+1449551824474	Tue Dec 08 14:17:04 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	810	1	
+1449551824630	Tue Dec 08 14:17:04 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	1	
+1449551824956	Tue Dec 08 14:17:04 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	1	
+1449551825437	Tue Dec 08 14:17:05 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	1	
+1449551825448	Tue Dec 08 14:17:05 JST 2015	COMMAND_RECORD	DELETE	src/DialogueSample.java	org.eclipse.ui.edit.delete
+1449551826796	Tue Dec 08 14:17:06 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	0	o
+1449551827956	Tue Dec 08 14:17:07 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	0	ｓ
+1449551828075	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	1	ｓｙ
+1449551828174	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	2	しょ
+1449551828295	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	2	しょｔ
+1449551828393	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	3	しょて
+1449551828482	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	3	しょてｎ
+1449551828622	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	4	しょてん
+1449551828797	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	4	しょてんｈ
+1449551828935	Tue Dec 08 14:17:08 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	5	しょてんは
+1449551829053	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	5	書店は
+1449551829246	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	3	
+1449551829254	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	0	書
+1449551829270	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	810	0	店
+1449551829285	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	811	0	は
+1449551829388	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	0	ｓ
+1449551829472	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	1	す
+1449551829665	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	1	すｋ
+1449551829795	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	2	すき
+1449551829942	Tue Dec 08 14:17:09 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	2	すきｄ
+1449551830148	Tue Dec 08 14:17:10 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	3	すきづ
+1449551830797	Tue Dec 08 14:17:10 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	3	すき
+1449551830963	Tue Dec 08 14:17:10 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	2	すきｄ
+1449551831157	Tue Dec 08 14:17:11 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	3	すきで
+1449551831346	Tue Dec 08 14:17:11 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	3	すきでｓ
+1449551831436	Tue Dec 08 14:17:11 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	4	すきです
+1449551831634	Tue Dec 08 14:17:11 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	4	すきですｋ
+1449551831760	Tue Dec 08 14:17:11 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	5	すきですか
+1449551831951	Tue Dec 08 14:17:11 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	5	好きですか
+1449551832309	Tue Dec 08 14:17:12 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	5	
+1449551832320	Tue Dec 08 14:17:12 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	0	好
+1449551832337	Tue Dec 08 14:17:12 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	0	き
+1449551832355	Tue Dec 08 14:17:12 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	814	0	で
+1449551832375	Tue Dec 08 14:17:12 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	815	0	す
+1449551832393	Tue Dec 08 14:17:12 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	816	0	か
+1449551835147	Tue Dec 08 14:17:15 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551835200	Tue Dec 08 14:17:15 JST 2015	COMMAND_RECORD	SAVE	src/DialogueSample.java
+1449551835200	Tue Dec 08 14:17:15 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueSample.java
+1449551835206	Tue Dec 08 14:17:15 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551837170	Tue Dec 08 14:17:17 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449551839261	Tue Dec 08 14:17:19 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449551853032	Tue Dec 08 14:17:33 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551855263	Tue Dec 08 14:17:35 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551855832	Tue Dec 08 14:17:35 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	816	1	
+1449551855999	Tue Dec 08 14:17:35 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	815	1	
+1449551856153	Tue Dec 08 14:17:36 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	814	1	
+1449551856317	Tue Dec 08 14:17:36 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	1	
+1449551856471	Tue Dec 08 14:17:36 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	1	
+1449551856627	Tue Dec 08 14:17:36 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	811	1	
+1449551856774	Tue Dec 08 14:17:36 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	810	1	
+1449551856926	Tue Dec 08 14:17:36 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	1	
+1449551857106	Tue Dec 08 14:17:37 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	1	
+1449551858330	Tue Dec 08 14:17:38 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	0	h
+1449551858431	Tue Dec 08 14:17:38 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	0	o
+1449551858609	Tue Dec 08 14:17:38 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	810	0	n
+1449551858748	Tue Dec 08 14:17:38 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	811	0	n
+1449551859007	Tue Dec 08 14:17:39 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	811	1	
+1449551859161	Tue Dec 08 14:17:39 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	810	1	
+1449551859312	Tue Dec 08 14:17:39 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	1	
+1449551859554	Tue Dec 08 14:17:39 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	1	
+1449551860181	Tue Dec 08 14:17:40 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	0	ｈ
+1449551860250	Tue Dec 08 14:17:40 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	1	ほ
+1449551860419	Tue Dec 08 14:17:40 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	1	ほｎ
+1449551860578	Tue Dec 08 14:17:40 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	2	ほん
+1449551860638	Tue Dec 08 14:17:40 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	2	ほんｔ
+1449551861051	Tue Dec 08 14:17:41 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	3	ほん
+1449551861354	Tue Dec 08 14:17:41 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	2	ほんｎ
+1449551861474	Tue Dec 08 14:17:41 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	3	ほんの
+1449551861643	Tue Dec 08 14:17:41 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	3	ほんのｎ
+1449551861787	Tue Dec 08 14:17:41 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	4	ほんのな
+1449551861921	Tue Dec 08 14:17:41 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	4	ほんのなｍ
+1449551862118	Tue Dec 08 14:17:42 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	5	ほんのなま
+1449551862425	Tue Dec 08 14:17:42 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	5	ほんのなまえ
+1449551862802	Tue Dec 08 14:17:42 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	6	ほんのなまえｈ
+1449551862942	Tue Dec 08 14:17:42 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	7	ほんのなまえは
+1449551863047	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	7	本の名前は
+1449551863414	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	5	
+1449551863422	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	808	0	本
+1449551863436	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	809	0	の
+1449551863452	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	810	0	名
+1449551863468	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	811	0	前
+1449551863484	Tue Dec 08 14:17:43 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	812	0	は
+1449551864573	Tue Dec 08 14:17:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	0	ｎ
+1449551864658	Tue Dec 08 14:17:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	1	な
+1449551864764	Tue Dec 08 14:17:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	1	なｎ
+1449551864863	Tue Dec 08 14:17:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	2	なん
+1449551864944	Tue Dec 08 14:17:44 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	2	なんｄ
+1449551865125	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	3	なんで
+1449551865310	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	3	なんでｓ
+1449551865429	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	4	なんです
+1449551865627	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	4	なんですｋ
+1449551865741	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	5	なんですか
+1449551865885	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	5	
+1449551865901	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	813	0	な
+1449551865919	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	814	0	ん
+1449551865938	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	815	0	で
+1449551865957	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	816	0	す
+1449551865975	Tue Dec 08 14:17:45 JST 2015	TEXTEDIT_RECORD	ECLIPSE	src/DialogueSample.java	817	0	か
+1449551870748	Tue Dec 08 14:17:50 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551873101	Tue Dec 08 14:17:53 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551873141	Tue Dec 08 14:17:53 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449551873177	Tue Dec 08 14:17:53 JST 2015	COMMAND_RECORD	SAVE	src/DialogueSample.java
+1449551873193	Tue Dec 08 14:17:53 JST 2015	COMMAND_RECORD	COMPILE	src/DialogueSample.java
+1449551873195	Tue Dec 08 14:17:53 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449551873355	Tue Dec 08 14:17:53 JST 2015	COMMAND_RECORD	START_RUN	src/DialogueSample.java
+1449551875753	Tue Dec 08 14:17:55 JST 2015	COMMAND_RECORD	STOP_RUN	src/DialogueSample.java
+1449551916425	Tue Dec 08 14:18:36 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552032496	Tue Dec 08 14:20:32 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449552041386	Tue Dec 08 14:20:41 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552050311	Tue Dec 08 14:20:50 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449552064726	Tue Dec 08 14:21:04 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552070772	Tue Dec 08 14:21:10 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449552070809	Tue Dec 08 14:21:10 JST 2015	COMMAND_RECORD	EXTENDED	src/DialogueSample.java	org.eclipse.ui.help.aboutAction
+1449552075534	Tue Dec 08 14:21:15 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552168359	Tue Dec 08 14:22:48 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449552170581	Tue Dec 08 14:22:50 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552375626	Tue Dec 08 14:26:15 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449552376650	Tue Dec 08 14:26:16 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552615403	Tue Dec 08 14:30:15 JST 2015	COMMAND_RECORD	FOCUS_GAINED	src/DialogueSample.java
+1449552626391	Tue Dec 08 14:30:26 JST 2015	COMMAND_RECORD	FOCUS_LOST	src/DialogueSample.java
+1449552783559	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueAuthenticateSample.java/1449550560321.java
+1449552783559	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueAuthenticateSample.java/1449550560321.java
+1449552783779	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueAuthenticateSample.java/1449550560321.java
+1449552783559	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueAuthenticateSample.java/1449550560321.java
+1449552783560	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueSample.java/1449550560331.java
+1449552783560	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueSample.java/1449550560331.java
+1449552783789	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueSample.java/1449550560331.java
+1449552783560	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueSample.java/1449550560331.java
+1449552783561	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueSample.java/1449550912385.java
+1449552783561	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueSample.java/1449550912385.java
+1449552783807	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueSample.java/1449550912385.java
+1449552783561	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueSample.java/1449550912385.java
+1449552783561	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueSample.java/1449551260590.java
+1449552783562	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueSample.java/1449551260590.java
+1449552783819	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueSample.java/1449551260590.java
+1449552783562	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueSample.java/1449551260590.java
+1449552783562	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueSample.java/1449551756710.java
+1449552783562	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueSample.java/1449551756710.java
+1449552783835	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueSample.java/1449551756710.java
+1449552783563	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueSample.java/1449551756710.java
+1449552783563	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueSample.java/1449551835174.java
+1449552783563	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueSample.java/1449551835174.java
+1449552783847	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueSample.java/1449551835174.java
+1449552783564	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueSample.java/1449551835174.java
+1449552783564	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	FILE_CREATED	.pres2/src/DialogueSample.java/1449551873165.java
+1449552783564	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	SAVE	.pres2/src/DialogueSample.java/1449551873165.java
+1449552783894	Tue Dec 08 14:33:03 JST 2015	LOG	DEBUG	RecordingFile Not Found.: .pres2/src/DialogueSample.java/1449551873165.java
+1449552783564	Tue Dec 08 14:33:03 JST 2015	COMMAND_RECORD	COMPILE	.pres2/src/DialogueSample.java/1449551873165.java
+1449553238572	Tue Dec 08 14:40:38 JST 2015	PROJECT_RECORD	EXTENDED	org.eclipse.egit.ui.team.Commit	true
